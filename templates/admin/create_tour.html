@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 style="color:white;">.</h1>
+<h1 style="color:white;">.</h1>
+<h1 style="color:white;">.</h1>
+
+
+<form method="post" enctype="multipart/form-data" class="form-horizontal">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {% if form.errors %}
+  <div class="alert alert-danger">
+      {% for field, errors in form.errors.items %}
+      <strong>{{ field }}:</strong> {{ errors|join:", " }}
+      {% endfor %}
+  </div>
+  {% endif %}
+  <button type="submit" class="btn btn-primary">Yaratish</button>
+</form>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  
+  const titleInput = document.getElementById('id_title');
+  const slugInput = document.getElementById('id_slug');
+
+  titleInput.addEventListener('input', function() {
+      const slugValue = titleInput.value.toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')  
+          .replace(/^-+|-+$/g, '');    
+      slugInput.value = slugValue;
+  });
+});
+</script>
+
+
+<h1 style="color:white;">.</h1>
+<h1 style="color:white;">.</h1>
+<h1 style="color:white;">.</h1>
+
+
+<style>
+  input, select, textarea {
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+  }
+</style>
+
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h1 style="color:white;">.</h1>
+<h1 style="color:white;">.</h1>
+<h2>Delete tour</h2>
+<h1 style="color:white;">.</h1>
+<form method="post">
+  {% csrf_token %} 
+  <button type="submit">Delete</button>  
+</form>
+<h1 style="color:white;">.</h1>
+<h1 style="color:white;">.</h1>
+{% endblock content %}
