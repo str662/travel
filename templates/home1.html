@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="col-md-7 align-self-center order-1 order-md-2">
                                     <div class="slider-image">
-                                        <img src="{% static 'images/hero-section/image-1.png' %}" alt="feature image" />
+                                        <img src="{% static 'images/hero-section/paris.jpg' %}" alt="feature image" />
                                     </div>
                                 </div>
                             </div>
@@ -81,13 +81,13 @@
                                                     {% endfor %}
                                                 </select>
                                             </div>
-                                            <div class="single-item">
+                                            {% comment %} <div class="single-item">
                                                 <label class="datepicker" for="datepicker">Date</label>
                                                 <input type="text" id="datepicker" name="start_date">
-                                            </div>
+                                            </div> {% endcomment %}
                                             <div class="single-item price-range-inner">
                                                 <span class="priceLabel">Price</span>
-                                                <span id="priceValue">$<span id="min-value"></span>-<span id="max-value"></span></span>
+                                                <span id="priceValue"><span id="min-value"></span>-<span id="max-value"></span>so`m</span>
                                                 <div class="priceSlider">
                                                     <div class="min-max-range">
                                                         <label for="min">Low price</label>
@@ -135,7 +135,7 @@
                 {% for tour in tours %}
                     <div class="location-card style-1 wow fadeInUp" data-wow-delay="0s">
                         <div class="image-wrapper">
-                            <a class="image-inner" href="destination-details.html">
+                            <a class="image-inner" href="{{tour.get_absolute_url}}">
                                 <img src="{{tour.image.url}}" alt="Location Image">
                             </a>
                             <div class="rating">
@@ -201,13 +201,13 @@
                         <div class="about-us-image-wrapper-1">
                             <img class="bg-shape" src="{% static 'images/about-us-area/image-wrapper-bg-1.png' %}" alt="Shape">
                             <div class="image-wrapper style-1">
-                                <img src="{% static 'images/about-us-area/img-1.jpg' %}" alt=" Vacation Image">
+                                <img src="{% static 'images/about-us-area/tay.jpg' %}" alt=" Vacation Image">
                             </div>
                             <div class="image-wrapper style-2">
-                                <img src="{% static 'images/about-us-area/img-2.jpg' %}" alt=" Vacation Image">
+                                <img src="{% static 'images/about-us-area/gori.avif' %}" alt=" Vacation Image">
                             </div>
                             <div class="image-wrapper style-3">
-                                <img src="{% static 'images/about-us-area/img-3.jpg' %}" alt=" Vacation Image">
+                                <img src="{% static 'images/about-us-area/gk.jpg' %}" alt=" Vacation Image">
                             </div>
                         </div>
                     </div>
@@ -428,17 +428,17 @@
                         <div class="single-img-wrapper style-1">
                             <div class="img-inner">
                                 <div class="image">
-                                    <img src="{% static 'images/testimonial/user-1.png' %}" alt="User Image">
+                                    <img src="{% static 'images/testimonial/rim.jpg' %}" alt="User Image">
                                 </div>
                                 <div class="content">
-                                    <span class="desc"><i class="fa-solid fa-location-dot"></i>Colombia</span>
+                                    <span class="desc"><i class="fa-solid fa-location-dot"></i>Roma</span>
                                 </div>
                             </div>
                         </div>
                         <div class="single-img-wrapper style-2">
                             <div class="img-inner">
                                 <div class="image">
-                                    <img src="{% static 'images/testimonial/user-3.png' %}" alt="User Image">
+                                    <img src="{% static 'images/testimonial/msk.jpg' %}" alt="User Image">
                                 </div>
                                 <div class="content">
                                     <span class="desc"><i class="fa-solid fa-location-dot"></i>Russia</span>
@@ -448,7 +448,7 @@
                         <div class="single-img-wrapper style-3">
                             <div class="img-inner">
                                 <div class="image">
-                                    <img src="{% static 'images/testimonial/user-2.png' %}" alt="User Image">
+                                    <img src="{% static 'images/testimonial/istanbul.jpg' %}" alt="User Image">
                                 </div>
                                 <div class="content style-2">
                                     <span class="desc"><i class="fa-solid fa-location-dot"></i>Istanbul</span>
@@ -461,7 +461,7 @@
                     <div class="testimonial-content-wrapper">
                          <div class="section-title">
                             <div class="sec-content">
-                                <span class="short-title">Testimonial</span>
+                                <span class="short-title"></span>
                                 <h2 class="title">What traveler says</h2>
                                 <img class="bottom-shape" src="{% static 'images/shape/bottom-bar.png' %}" alt="Bottom Shape">
                             </div>
@@ -490,31 +490,31 @@
                             <div class="testimonial-user-wrapper ">
                                 <!-- Single User Wrapper Start -->
                                 <div  class="single-user">
-                                    <img src="{% static 'images/testimonial/user-4.png' %}" alt="user"/>
+                                    <img src="{% static 'images/testimonial/user.avif' %}" alt="user"/>
                                 </div>
                                 <!-- Single User Wrapper End -->
 
                                 <!-- Single User Wrapper Start -->
                                 <div class="single-user">
-                                    <img src="{% static 'images/testimonial/user-5.png' %}" alt="user"/>
+                                    <img src="{% static 'images/testimonial/user.avif' %}" alt="user"/>
                                 </div>
                                 <!-- Single User Wrapper End -->
 
                                 <!-- Single User Wrapper Start -->
                                 <div class="single-user">
-                                    <img src="{% static 'images/testimonial/user-6.png' %}" alt="user"/>
+                                    <img src="{% static 'images/testimonial/user.avif' %}" alt="user"/>
                                 </div>
                                 <!-- Single User Wrapper End -->
 
                                 <!-- Single User Wrapper Start -->
                                 <div class="single-user">
-                                    <img src="{% static 'images/testimonial/user-7.png' %}" alt="user"/>
+                                    <img src="{% static 'images/testimonial/user.avif' %}" alt="user"/>
                                 </div>
                                 <!-- Single User Wrapper End -->
 
                                 <!-- Single User Wrapper Start -->
                                 <div  class="single-user">
-                                    <img src="{% static 'images/testimonial/user-8.png' %}" alt="user"/>
+                                    <img src="{% static 'images/testimonial/user.avif' %}" alt="user"/>
                                 </div>
                                 <!-- Single User Wrapper End -->
                             </div>
