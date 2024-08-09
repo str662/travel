@@ -77,7 +77,7 @@
                                     <li><a href="{% url 'about_page' %}">About</a></li>
                                     <li><a href="{% url 'tour_page' %}">Tours</a></li>
                                     <li><a href="{% url 'contact_page' %}">Contact</a></li>
-                                    {% if user.is_superuser  %}
+                                    {% if user.is_staff  %}
                                     <li><a href="{% url 'super-admin' %}">Admin</a></li>
                                     {% endif %}
                                 </ul>
