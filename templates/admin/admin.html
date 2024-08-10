@@ -2,12 +2,20 @@
 {% load static %}
 
 {% block content %}
+ <!-- Page Header Start !-->
+ <div class="page-breadcrumb-area page-bg" style="background-image: url({% static 'images/breadcrumb/ofis2.jpg' %})">
+</div>
+<!-- Page Header End !-->
 <h1 style="color:white;">.</h1>
 <h1 style="color:white;">.</h1>
 
 <h2> Hello  {{user.username}}</h2>
-<button><a href="{% url "tour_create" %}">Create tour</a></button>
-<h1 style="color:white;">.</h1>
+<div>
+    <li><button><a href="{% url "tour_create" %}">Create tour</a></button></li>
+    <li><button><a href="{% url "create-inexclude" %}">Create In Exclude</a></button></li>
+    <li><button><a href="{% url "orders" %}">Список заказов</a></button></li>
+</div>
+
 
 <h1 style="color:white;">.</h1>
 <h1 style="color:white;">.</h1>

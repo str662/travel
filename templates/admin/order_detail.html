@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 style="color:white;">.</h1>
+<h1 style="color:white;">.</h1>
+
+    <li>Заказчик: {{order.full_name}}</li>
+    <li>Электронная почта: {{order.email}}</li>
+    <li>Телефон номер: {{order.phone}}</li>
+    <li>На какой тур: {{order.tour}}</li>
+    <li>На какой день: {{order.date}}</li>
+
+<h1 style="color:white;">.</h1>
+<h1 style="color:white;">.</h1>
+{% endblock content %}

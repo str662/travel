@@ -8,7 +8,7 @@ from ..models import ProductModel
 class TourView(View):
     def get(self, request):
         tour_list = ProductModel.objects.all()
-        paginator = Paginator(tour_list, 9)
+        paginator = Paginator(tour_list, 6)
         page = request.GET.get('page')
 
         try:

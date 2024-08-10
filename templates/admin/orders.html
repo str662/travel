@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 style="color:white;">.</h1>
+<h1 style="color:white;">.</h1>
+{% for i in order %}
+    <li><a href="{% url "order_detail" i.id %}">{{i}}</a></li>
+{% endfor %}
+<h1 style="color:white;">.</h1>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Pagination</title>
+    <style>
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .current {
+            background-color: #6c757d;
+            cursor: default;
+        }
+    </style>
+</head>
+<body>
+    <div class="pagination">
+        <span class="step-links">
+            {% if order.has_previous %}
+                <a href="?page=1" class="btn">&laquo; first</a>
+                <a href="?page={{ order.previous_page_number }}" class="btn">previous</a>
+            {% endif %}
+
+            {% for num in order.paginator.page_range %}
+                {% if order.number == num %}
+                    <button class="btn current">{{ num }}</button>
+                {% elif num > order.number|add:'-3' and num < order.number|add:'3' %}
+                    <a href="?page={{ num }}" class="btn">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {% if order.has_next %}
+                <a href="?page={{ order.next_page_number }}" class="btn">next</a>
+                <a href="?page={{ order.paginator.num_pages }}" class="btn">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    <h1 style="color:white;">.</h1>
+</body>
+</html>
+
+
+
+{% endblock content %}
