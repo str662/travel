@@ -55,12 +55,7 @@
                                 <a href="{{tours.get_absolute_url}}">{{tours.title}}</a>
                             </h3>
                             <div class="rating">
-                                <div class="ratting-inner">
-                                    <span>
-                                        <i class="fa-solid fa-star"></i>
-                                    </span>   
-                                    <span class="counter">3.5</span>
-                                </div>
+                                
                             </div>
                         </div>
                         <div class="post-meta style-2">
@@ -71,10 +66,10 @@
                                     </div>
                                     <div class="time-info">
                                         <i class="fa-solid fa-clock"></i>
-                                        <p class="time">{{tours.days}} Days</p>
+                                        <p class="time">{{tours.days}} дней</p>
                                     </div>
                                 </div>
-                                <h5 class="price">${{tours.prise}}</h5>
+                                <h5 class="price">{{tours.prise}} so`m</h5>
                          </div>
                         <div class="post-thumbnail">
                             <a href="#">
@@ -83,14 +78,14 @@
                         </div>
                         <div class="post-content-wrapper">
                             <div class="post-content">
-                                <h4>About Tour</h4>
+                                <h4>Описание</h4>
                                 <p>{{tours.about}}</p>
                                 <div class="post-card-divider"></div>
-
-                                <button><a href="{% url "delete-tour" tours.slug %}">Delete tour</a></button>
-                                
+                                {% if user.is_staff %}
+                                <button><a href="{% url "delete-tour" tours.slug %}">Удалить тур</a></button>
+                                {% endif %}
                                
-                                <h4>Image from travello</h4>
+                                <h4>Фото с туров</h4>
                                 <div class="post-gallery-columns-2">
                                     <div class="post-gallery-item">
                                         <img src="{% static 'images/tour-details/image-1.jpg' %}" alt="image">
@@ -106,14 +101,6 @@
                                     </div>
                                 </div>
                                 <div class="post-card-divider"></div>
-                               
-                                <h4>Tour map</h4>
-                                <div class="map-wedget">
-                                    <iframe
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115860.91759646642!2d89.28780421873043!3d24.84151459710791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fc54e7e81df441%3A0x27133ed921fe73f4!2sBogura!5e0!3m2!1sen!2sbd!4v1684842047185!5m2!1sen!2sbd"
-                                        style="border:0;" allowfullscreen="" loading="lazy"
-                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                </div>
                             </div>
                         </div>
                     </article>
@@ -124,14 +111,14 @@
                 <div class="col-lg-4 order-1 order-lg-2">
                     <div class="sidebar">
                         <div class="widget widget_booking_form">
-                            <h3 class="title">Book this tour</h3>
+                            <h3 class="title">Забронировать тур</h3>
                             <form action="{{ tours.get_absolute_url }}" method="post" class="comment-form">
                                 {% csrf_token %}
                                 <div class="row g-4">
                                     <div class="col-xl-12">
                                         <div class="contacts-name input-wrapper">
-                                            <label>Full name</label>
-                                            <input name="full_name" type="text" placeholder="Your Name" required>
+                                            <label>Ф.И.О</label>
+                                            <input name="full_name" type="text" placeholder="Ф.И.О" required>
                                             {% if form.full_name.errors %}
                                                 <div class="error">{{ form.full_name.errors }}</div>
                                             {% endif %}
@@ -139,8 +126,8 @@
                                     </div>
                                     <div class="col-xl-12">
                                         <div class="contacts-email input-wrapper">
-                                            <label>Email</label>
-                                            <input name="email" type="email" placeholder="Your Email" required>
+                                            <label>Электронная почта</label>
+                                            <input name="email" type="email" placeholder="Электронная почта" required>
                                             {% if form.email.errors %}
                                                 <div class="error">{{ form.email.errors }}</div>
                                             {% endif %}
@@ -148,8 +135,8 @@
                                     </div>
                                     <div class="col-xl-12">
                                         <div class="contacts-phone input-wrapper">
-                                            <label>Phone</label>
-                                            <input name="phone" type="text" placeholder="Your Phone No." required>
+                                            <label>Номер телефона</label>
+                                            <input name="phone" type="text" placeholder="Номер телефона" required>
                                             {% if form.phone.errors %}
                                                 <div class="error">{{ form.phone.errors }}</div>
                                             {% endif %}
@@ -157,7 +144,7 @@
                                     </div>
                                     <div class="col-xl-12">
                                         <div class="contacts-date input-wrapper">
-                                            <label>Date</label>
+                                            <label>День</label>
                                             <input name="date" type="text" value="{{ form.date.value|date:'Y-m-d' }}" readonly>
                                             {% if form.date.errors %}
                                                 <div class="error">{{ form.date.errors }}</div>
@@ -166,7 +153,7 @@
                                     </div>
                                     <div class="col-xl-12">
                                         <div class="contacts-tour input-wrapper">
-                                            <label>Tour</label>
+                                            <label>Тур</label>
                                             <input name="tour" type="text" value="{{ form.tour.value }}" readonly>
                                             {% if form.tour.errors %}
                                                 <div class="error">{{ form.tour.errors }}</div>
@@ -177,7 +164,7 @@
                                         <button class="theme-btn" type="submit">
                                             <span class="swip">
                                                 <span class="title-wrapper">
-                                                    <span class="title-1">Book now</span>
+                                                    <span class="title-1">Забронировать</span>
                                                 </span>
                                             </span>
                                         </button>

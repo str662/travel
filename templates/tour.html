@@ -64,12 +64,9 @@
                         <div class="col-lg-4 col-md-6 masonry-portfolio-item resort beach wow fadeInUp" data-wow-delay="0s">
                             <div class="location-card style-2">
                                 <div class="image-wrapper">
-                                    <a href="tour-details.html" class="image-inner">
+                                    <a href="{{tour.get_absolute_url}}" class="image-inner">
                                         <img src="{{tour.image.url}}" alt="Location Image">
                                     </a>
-                                    <div class="favourite-icon">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
                                 </div>
                                 <div class="content-wrapper">
                                     <div class="content-inner">
@@ -78,11 +75,11 @@
                                         <div class="time-zone">
                                             <div class="time-zone-inner">
                                                <i class="fa-solid fa-location-dot"></i>
-                                                <p class="title">Agoda, surulere lagos</p>
+                                                <p class="title">{{tour.addres}}</p>
                                             </div>
                                             <div class="time-zone-inner">
                                                 <i class="fa-solid fa-clock"></i>
-                                                <p class="title">4 Days</p>
+                                                <p class="title">{{tour.days}} дней</p>
                                             </div>
                                         </div>
                                     </div>
