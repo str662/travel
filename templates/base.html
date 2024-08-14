@@ -11,7 +11,7 @@
         content="travel agency, travel adventures, wanderlust, tourism, agency, vacation planning, trip, journey, exploration, voyage, getaway, adventure, travel guide, holiday destinations"/>
     <meta name="author" content="BoomDevs" />
 
-    <title>RouteHaven - Travel & Tour Booking HTML5 Template</title>
+    <title>RouteHaven</title>
     <link rel="icon" type="image/png" href="{% static 'images/logo/favicon.png' %}"/>
     <link rel="apple-touch-icon" href="{% static 'images/logo/apple-touch-icon.png' %}"/>
     <link rel="apple-touch-icon" sizes="57x57" href="{% static 'images/logo/apple-touch-icon-57x57.png' %}"/>
@@ -74,16 +74,16 @@
                         <div class="menu d-inline-block">
                             <nav id="main-menu" class="main-menu">
                                 <ul>
-                                    <li><a href="{% url 'home_page'%}">Home</a></li>
-                                    <li><a href="{% url 'about_page' %}">About</a></li>
-                                    <li><a href="{% url 'tour_page' %}">Tours</a></li>
-                                    <li><a href="{% url 'contact_page' %}">Contact</a></li>
+                                    <li><a href="{% url 'home_page'%}">{% blocktranslate %}Главная{% endblocktranslate %}</a></li>
+                                    <li><a href="{% url 'about_page' %}">{% blocktranslate %}О нас{% endblocktranslate %}</a></li>
+                                    <li><a href="{% url 'tour_page' %}">{% blocktranslate %}Туры{% endblocktranslate %}</a></li>
+                                    <li><a href="{% url 'contact_page' %}">{% blocktranslate %}Контакты{% endblocktranslate %}</a></li>
                                     {% if user.is_staff  %}
-                                    <li><a href="{% url 'super-admin' %}">Admin</a></li>
+                                    <li><a href="{% url 'super-admin' %}">{% blocktranslate %}Админ{% endblocktranslate %}</a></li>
                                     {% endif %}
                                    
 
-                                    <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                                    {% comment %} <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
                                         <input name="next" type="hidden" value="{{ redirect_to }}">
                                         <select name="language">
                                             {% get_current_language as LANGUAGE_CODE %}
@@ -96,7 +96,10 @@
                                             {% endfor %}
                                         </select>
                                         <input type="submit" value="Go">
-                                    </form>
+                                    </form> {% endcomment %}
+
+                                    
+                                    
                                 </ul>
                             </nav>
                         </div>
@@ -106,17 +109,29 @@
                             <li>
                                 <form method="post" action="{% url 'logout' %}" style="display: inline;">
                                     {% csrf_token %}
-                                    <button type="submit" style="background: none; border: none; color: inherit; cursor: pointer; padding: 0; font: inherit;">Logout</button>
+                                    <button type="submit" style="background: none; border: none; color: inherit; cursor: pointer; padding: 0; font: inherit;">{% blocktranslate %}Выйти{% endblocktranslate %}</button>
                                 </form>
                             </li>
                             
                             {% else %}
                             
-                            <a href="{% url 'login' %}">Login</a>
+                            <a href="{% url 'login' %}">{% blocktranslate %}Войти{% endblocktranslate %}</a>
                             
-                            <a href="{% url 'register' %}">Register</a>
+                            <a href="{% url 'register' %}">{% blocktranslate %}Регистрация{% endblocktranslate %}</a>
 
                             {% endif %}
+                            <form action="{% url 'set_language' %}" method="post">
+                                {% csrf_token %}
+                                <input name="next" type="hidden" value="{{ redirect_to }}">
+                            
+                                <button type="submit" name="language" value="ru">
+                                    <img src="{% static 'images/flags/ru.png' %}" alt="Русский" style="width: 24px; height: 16px;">
+                                </button>
+                                
+                                <button type="submit" name="language" value="en">
+                                    <img src="{% static 'images/flags/en.jpg' %}" alt="English" style="width: 24px; height: 16px;">
+                                </button>
+                            </form>
                         </div>
                         <!-- Header Button Start !-->
                         <!-- Mobile Menu Toggle Button Start !-->
@@ -131,6 +146,39 @@
         <!-- Header Nav Menu End -->
     </header>
 <!-- Header End !-->
+ 
+    <!-- Menu Sidebar Section Start -->
+    <div class="menu-sidebar-area">
+        <div class="menu-sidebar-wrapper">
+            <div class="menu-sidebar-close">
+                <button class="menu-sidebar-close-btn" id="menu_sidebar_close_btn">
+                    <i class="fal fa-times"></i>
+                </button>
+            </div>
+            <div class="menu-sidebar-content">
+                <div class="menu-sidebar-logo">
+                    <a href="index.html"><img src="{% static 'images/logo/nav-logo.png' %}" alt="logo"/></a>
+                </div>
+                <div class="mobile-nav-menu"></div>
+                <div class="menu-sidebar-content">
+                    <div class="menu-sidebar-single-widget">
+                        <h5 class="menu-sidebar-title">{% blocktranslate %}Контакты{% endblocktranslate %}</h5>
+                        <div class="header-contact-info">
+                            <span><i class="fa-solid fa-location-dot"></i>Узбекистан, Самарканд</span>
+                            <span><a href="mailto:hello@transico.com"><i class="fa-solid fa-envelope"></i>timkakadirov96@gmail.com</a> </span>
+                            <span><a href="tel:+123-456-7890"><i class="fa-solid fa-phone"></i>+998 88 913 66 96</a></span>
+                        </div>
+                        <div class="social-profile">
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="https://youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="https://t.me/str_developer"><i class="fa-brands fa-telegram"></i></a>
+                            <a href="https://www.instagram.com/str.662/"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% block content %}
 
 
@@ -143,35 +191,36 @@
                 <div class="row">
                     <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 ">
                         <div class="footer-widget">
-                            <h2 class="footer-widget-title">Book your holiday</h2>
+                            <h2 class="footer-widget-title">{% blocktranslate %}Наши контакты{% endblocktranslate %}</h2>
                              <div class="footer-widget-contact">
                                  <div class="footer-contact">
                                     <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
-                                    <div class="contact-text"><a href="tel:+012-345-6789">012-345-6789</a></div>
+                                    <div class="contact-text"><a href="tel:+012-345-6789">+998 88 913 66 96</a></div>
                                 </div>
                              </div>
                         </div>
                     </div>
                     <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 ">
                         <div class="footer-widget">
-                            <h2 class="footer-widget-title">Email us</h2>
+                            <h2 class="footer-widget-title">{% blocktranslate %}Наша электронная почта{% endblocktranslate %}</h2>
                              <div class="footer-widget-contact">
                                  <div class="footer-contact">
                                     <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
-                                    <div class="contact-text"><a href="mailto:info@gmail.com">info@gmail.com</a></div>
+                                    <div class="contact-text"><a href="mailto:info@gmail.com">timkakadirov96@gmail.com</a></div>
                                 </div>
                              </div>
                         </div>
                     </div>
                     <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-6  d-flex  justify-content-lg-end align-items-lg-end">
                         <div class="footer-widget">
-                            <h2 class="footer-widget-title">Follow us</h2>
+                            <h2 class="footer-widget-title">{% blocktranslate %}Наши соцсети{% endblocktranslate %}</h2>
                             <div class="footer-widget-social">
                                 <div class="social-profile">
-                                    <a href="https://www.facebook.com/boomdevs/"><i class="fa-brands fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
                                     <a href="https://youtube.com/"><i class="fa-brands fa-youtube"></i></a>
-                                    <a href="https://twitter.com/boom_devs/"><i class="fa-brands fa-twitter"></i></a>
-                                    <a href="https://www.linkedin.com/company/boomdevs/"><i class="fa-brands fa-linkedin-in"></i></a>
+                                    <a href="https://t.me/str_developer"><i class="fa-brands fa-telegram"></i></a>
+                                    <a href="https://www.instagram.com/str.662/"><i class="fa-brands fa-instagram"></i></a>
+
                                 </div>
                             </div>
                         </div>
@@ -185,15 +234,14 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="copyright-text">
-                                <p>Copyright &copy; Creative Theme - Built by <a href="https://boomdevs.com/">BoomDevs</a></p>
+                                <p>str &copy; RouteHaven <a href="#"></a></p>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="footer-bottom-menu">
                                 <ul>
-                                    <li><a href="#">Contact</a></li>
-                                    <li><a href="#">Privacy policy</a></li>
-                                    <li><a href="#">Terms & conditions</a></li>
+                                    <li><a href="{% url "contact_page" %}">Контакты</a></li>
+                                
                                 </ul>
                             </div>
                         </div>

@@ -1,41 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
-    <!-- Menu Sidebar Section Start -->
-    <div class="menu-sidebar-area">
-        <div class="menu-sidebar-wrapper">
-            <div class="menu-sidebar-close">
-                <button class="menu-sidebar-close-btn" id="menu_sidebar_close_btn">
-                    <i class="fal fa-times"></i>
-                </button>
-            </div>
-            <div class="menu-sidebar-content">
-                <div class="menu-sidebar-logo">
-                    <a href="index.html">
-                        <img src="{% static 'images/logo/nav-logo.png' %}" alt="logo" />
-                    </a>
-                </div>
-                <div class="mobile-nav-menu"></div>
-                <div class="menu-sidebar-content">
-                    <div class="menu-sidebar-single-widget">
-                        <h5 class="menu-sidebar-title">Contact Info</h5>
-                        <div class="header-contact-info">
-                            <span><i class="fa-solid fa-location-dot"></i>20, Bordeshi, New York, US</span>
-                            <span><a href="mailto:hello@transico.com"><i class="fa-solid fa-envelope"></i>hello@transico.com</a> </span>
-                            <span><a href="tel:+123-456-7890"><i class="fa-solid fa-phone"></i>+123-456-7890</a></span>
-                        </div>
-                        <div class="social-profile">
-                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+ 
     <!-- Menu Sidebar Section Start -->
     <div class="body-overlay"></div>
 
@@ -53,7 +21,7 @@
                             <i class="fa-solid fa-phone-volume"></i>
                         </div>
                         <div class="content">
-                            <h2 class="title">Наши контакты</h2>
+                            <h2 class="title">{% blocktranslate %}Наши контакты{% endblocktranslate %}</h2>
                             <div class="info">
                                 <a href="tel:+65-48596-5789" class="desc">(+998) - 88 - 913 - 66 - 96</a>
                                 <a href="tel:+65-48596-5790" class="desc">(+998) - 88 - 913 - 66 - 96</a>
@@ -67,7 +35,7 @@
                             <i class="fa-solid fa-calendar"></i>
                         </div>
                         <div class="content">
-                            <h2 class="title">Наша электронная почта</h2>
+                            <h2 class="title">{% blocktranslate %}Наша электронная почта{% endblocktranslate %}</h2>
                             <div class="info">
                                 <a href="mailto:info@travon.com" class="desc">timkakadirov96@gmail.com</a>
                                 <a href="mailto:info.example@gmail.com" class="desc">timkakadirov96@gmail.com</a>
@@ -81,9 +49,9 @@
                             <i class="fa-solid fa-message"></i>
                         </div>
                         <div class="content">
-                            <h2 class="title">Наш адрес</h2>
+                            <h2 class="title">{% blocktranslate %}Наш адрес{% endblocktranslate %}</h2>
                             <div class="info">
-                                <span class="address-desc">Улица дом 777<br>Узбекистан Самарканд</span>
+                                <span class="address-desc">{% blocktranslate %}Улица дом 777{% endblocktranslate %}<br>{% blocktranslate %}Узбекистан Самарканд{% endblocktranslate %}</span>
                             </div>
                         </div>
                     </div>
@@ -120,36 +88,36 @@
                             <div class="row g-4">
                                 <div class="col-xl-6">
                                     <div class="contacts-name">
-                                        <label for="author">Ф.И.О</label>
-                                        <input name="full_name" id="author" type="text" placeholder="Ф.И.О">
+                                        <label for="author">{% blocktranslate %}Ф.И.О{% endblocktranslate %}</label>
+                                        <input name="full_name" id="author" type="text" placeholder={% blocktranslate %}"Ф.И.О"{% endblocktranslate %}>
                                     </div>
                                 </div>
                                 <div class="col-xl-6">
                                     <div class="contacts-email">
-                                        <label for="email">Электронная почта</label>
-                                        <input name="email" id="email" type="email" placeholder="Электронная почта">
+                                        <label for="email">{% blocktranslate %}Электронная почта{% endblocktranslate %}</label>
+                                        <input name="email" id="email" type="email" placeholder={% blocktranslate %}"Электронная почта"{% endblocktranslate %}>
                                     </div>
                                 </div>
                                 <div class="col-xl-6">
                                     <div class="contacts-phone">
-                                        <label for="phone">Номер телефона</label>
-                                        <input name="phone_number" id="phone" type="phone_number" placeholder="Номер телефона">
+                                        <label for="phone">{% blocktranslate %}Номер телефона{% endblocktranslate %}</label>
+                                        <input name="phone_number" id="phone" type="phone_number" placeholder={% blocktranslate %}"Номер телефона"{% endblocktranslate %}>
                                     </div>
                                 </div>
                                 <div class="col-xl-6">
                                     <div class="contacts-subject">
-                                        <label for="subject">Тема</label>
-                                        <input name="subject" id="subject" type="subject" placeholder="Тема">
+                                        <label for="subject">{% blocktranslate %}Тема{% endblocktranslate %}</label>
+                                        <input name="subject" id="subject" type="subject" placeholder={% blocktranslate %}"Тема"{% endblocktranslate %}>
                                     </div>
                                 </div>
                                 <div class="col-xl-12">
                                     <div class="contacts-message">
-                                        <label for="comment">Ваши коментари</label>
-                                        <textarea name="your_comment" type="your_comment" id="comment" cols="20" rows="3" placeholder="Ваши коментари"></textarea>
+                                        <label for="comment">{% blocktranslate %}Ваши коментари{% endblocktranslate %}</label>
+                                        <textarea name="your_comment" type="your_comment" id="comment" cols="20" rows="3" placeholder={% blocktranslate %}"Ваши коментари"{% endblocktranslate %}></textarea>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="theme-btn" type="submit">Отправить</button>
+                                    <button class="theme-btn" type="submit">{% blocktranslate %}Отправить{% endblocktranslate %}</button>
                                 </div>
                             </div>
                         </form>

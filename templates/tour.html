@@ -1,40 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
-    <!-- Menu Sidebar Section Start -->
-    <div class="menu-sidebar-area">
-        <div class="menu-sidebar-wrapper">
-            <div class="menu-sidebar-close">
-                <button class="menu-sidebar-close-btn" id="menu_sidebar_close_btn">
-                    <i class="fal fa-times"></i>
-                </button>
-            </div>
-            <div class="menu-sidebar-content">
-                <div class="menu-sidebar-logo">
-                    <a href="index.html"><img src="{% static 'images/logo/nav-logo.png' %}" alt="logo"/></a>
-                </div>
-                <div class="mobile-nav-menu"></div>
-                <div class="menu-sidebar-content">
-                    <div class="menu-sidebar-single-widget">
-                        <h5 class="menu-sidebar-title">Contact Info</h5>
-                        <div class="header-contact-info">
-                            <span><i class="fa-solid fa-location-dot"></i>20, Bordeshi, New York, US</span>
-                            <span><a href="mailto:hello@transico.com"><i class="fa-solid fa-envelope"></i>hello@transico.com</a> </span>
-                            <span><a href="tel:+123-456-7890"><i class="fa-solid fa-phone"></i>+123-456-7890</a></span>
-                        </div>
-                        <div class="social-profile">
-                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Menu Sidebar Section Start -->
     <div class="body-overlay"></div>
 
     <!-- Page Header Start !-->
@@ -50,7 +18,7 @@
                     <div class="col-12">
                         <div class="section-title  align-content-center justify-content-center text-center">
                             <div class="sec-content">
-                                <h2 class="title">Наши туры</h2>
+                                <h2 class="title">{% blocktranslate %}Наши туры{% endblocktranslate %}</h2>
                                 <img class="bottom-shape" src="{% static 'images/shape/bottom-bar.png' %}" alt="Bottom Shape">
                             </div>
                         </div>
@@ -70,7 +38,7 @@
                                 </div>
                                 <div class="content-wrapper">
                                     <div class="content-inner">
-                                        <h5 class="price"><span >{{tour.prise}}</span>so`m</h5>
+                                        <h5 class="price"><span >{{tour.prise}}</span> {% blocktranslate %}сум{% endblocktranslate %}</h5>
                                         <h3 class="content-title"><a href="{{tour.get_absolute_url}}">{{tour.title}}</a></h3>
                                         <div class="time-zone">
                                             <div class="time-zone-inner">
@@ -79,7 +47,7 @@
                                             </div>
                                             <div class="time-zone-inner">
                                                 <i class="fa-solid fa-clock"></i>
-                                                <p class="title">{{tour.days}} дней</p>
+                                                <p class="title">{{tour.days}} {% blocktranslate %}дней{% endblocktranslate %}</p>
                                             </div>
                                         </div>
                                     </div>

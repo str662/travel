@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 from django.utils.translation import gettext_lazy as _
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,10 +24,9 @@ INSTALLED_APPS = [
     #my apps
     'app',
     'users',
-
-    #install apps
+ #install apps
     'jazzmin',
-    'modeltranslation',
+   
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'modeltranslation',
 ]
 
 MIDDLEWARE = [
@@ -117,8 +119,10 @@ LANGUAGES = [
     ("ru", _("Russian")),
     ("en", _("English")),
 ]
-MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
-LOCALE_PATHS = BASE_DIR, 'locale'
+MODELTRANSLATION_LANGUAGES = ('en', 'ru')
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
+]
 
 
 # Static files (CSS, JavaScript, Images)

@@ -65,6 +65,18 @@ body {
 }
 /* styles.css */
 
+.flag-button {
+  background-color: transparent; /* Убираем фон */
+  border: none; /* Убираем границу */
+  padding: 0; /* Убираем отступы */
+  cursor: pointer; /* Изменяем курсор при наведении */
+}
+
+.flag-icon {
+  width: 24px; /* Ширина флага */
+  height: 16px; /* Высота флага */
+  vertical-align: middle; /* Выравнивание по центру */
+}
 
 
 p {

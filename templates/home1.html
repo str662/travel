@@ -1,42 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
     
 {% block content %}
-    <!-- Menu Sidebar Section Start -->
-    <div class="menu-sidebar-area">
-        <div class="menu-sidebar-wrapper">
-            <div class="menu-sidebar-close">
-                <button class="menu-sidebar-close-btn" id="menu_sidebar_close_btn">
-                    <i class="fal fa-times"></i>
-                </button>
-            </div>
-            <div class="menu-sidebar-content">
-                <div class="menu-sidebar-logo">
-                    <a href="index.html"><img src="{% static 'images/logo/nav-logo.png' %}" alt="logo"/></a>
-                </div>
-                <div class="mobile-nav-menu"></div>
-                <div class="menu-sidebar-content">
-                    <div class="menu-sidebar-single-widget">
-                        <h5 class="menu-sidebar-title">Contact Info</h5>
-                        <div class="header-contact-info">
-                            <span><i class="fa-solid fa-location-dot"></i>20, Bordeshi, New York, US</span>
-                            <span><a href="mailto:hello@transico.com"><i
-                                        class="fa-solid fa-envelope"></i>hello@transico.com</a> </span>
-                            <span><a href="tel:+123-456-7890"><i class="fa-solid fa-phone"></i></a></span>
-                        </div>
-                        <div class="social-profile">
-                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Menu Sidebar Section Start -->
-
     <!-- Banner Section Start !-->
     <div class="slider-area style-1"  style="background-image: url({% static 'images/hero-section/bg-1.jpg' %})">
         <img class="banner-shape-1 wow slideInLeft" src="{% static 'images/shape/wave.png' %}" alt="Shape">
@@ -54,7 +20,7 @@
                                         <div class="slider-content">
                                             <img class="topbar-shape" src="{% static 'images/shape/highlight.png' %}" alt="Shape">
                                             <span class="slider-short-title">name of travel agency</span>
-                                            <h1 class="slider-title">Путешествие только с нами</h1>
+                                            <h1 class="slider-title">{% blocktranslate %}Путешествие только с нами{% endblocktranslate %}</h1>
                                             <img class="bottom-shape" src="{% static 'images/shape/bottom-bar.png' %}" alt="Bottom Shape">
                                             <p class="slider-short-desc"></p>
                                         </div>
@@ -74,7 +40,7 @@
                                         
                                         <form method="get" action="{% url 'search_page' %}">
                                             <div class="single-item">
-                                                <label for="state" class="select-location">Стпана</label>
+                                                <label for="state" class="select-location">{% blocktranslate %}Стпана{% endblocktranslate %}</label>
                                                 <select class="select-location-inner" id="state" name="country">
                                                     {% for i in tours %}
                                                         <option value="{{ i.country }}">{{ i.country }}</option>
@@ -82,13 +48,13 @@
                                                 </select>
                                             </div>
                                             <div class="single-item price-range-inner">
-                                                <span class="priceLabel">Цена</span>
-                                                <span id="priceValue"><span id="min-value"></span>-<span id="max-value"></span>so`m</span>
+                                                <span class="priceLabel">{% blocktranslate %}Цена{% endblocktranslate %}</span>
+                                                <span id="priceValue"><span id="min-value"></span>-<span id="max-value"></span>{% blocktranslate %}сум{% endblocktranslate %}</span>
                                                 <div class="priceSlider">
                                                     <div class="min-max-range">
-                                                        <label for="min">С</label>
+                                                        <label for="min">{% blocktranslate %}С{% endblocktranslate %}</label>
                                                         <input type="range" min="0" max="5000000" class="range" id="min" name="min_price">
-                                                        <label for="max">По</label>
+                                                        <label for="max">{% blocktranslate %}По{% endblocktranslate %}</label>
                                                         <input type="range" min="5000010" max="10000000" class="range" id="max" name="max_price">
                                                     </div>
                                                 </div>
@@ -116,7 +82,7 @@
                         <div class="sec-content">
                             <img class="topbar-shape-2" src="{% static 'images/shape/three-line-shape.png' %}" alt="Shape">
                             <span class="short-title">name of travel agency</span>
-                            <h2 class="title">Популярные направление</h2>
+                            <h2 class="title">{% blocktranslate %}Популярные направление{% endblocktranslate %}</h2>
                             <img class="bottom-shape" src="{% static 'images/shape/bottom-bar.png' %}" alt="Bottom Shape">
                         </div>
                         <div class="location-slider-arrow">
@@ -160,7 +126,7 @@
                             <div class="section-title">
                                 <div class="sec-content">
                                     <span class="short-title">name of travel agency</span>
-                                    <h2 class="title">Мы создаем путешествия для увлеченных путешественников</h2>
+                                    <h2 class="title">{% blocktranslate %}Мы создаем путешествия для увлеченных путешественников{% endblocktranslate %}</h2>
                                     <img class="bottom-shape" src="{% static 'images/shape/bottom-bar.png' %}" alt="Bottom Shape">
                                 </div>
                             </div>
@@ -169,8 +135,8 @@
                                     <img src="{% static 'images/icon/folding-map.png' %}" alt="Icon">
                                 </div>
                                 <div class="content">
-                                    <h6 class="title">Лучшее из отелей</h6>
-                                    <p class="desc">Мы стараемся тщательно выберать отелей для нашых путешественников и выбрать самые лучшее</p>
+                                    <h6 class="title">{% blocktranslate %}Лучшее из отелей{% endblocktranslate %}</h6>
+                                    <p class="desc">{% blocktranslate %}Мы стараемся тщательно выберать отелей для нашых путешественников и выбрать самые лучшее{% endblocktranslate %}</p>
                                 </div>
                             </div>
                             <div class="info-card style-1">
@@ -178,12 +144,12 @@
                                     <img src="{% static 'images/icon/ticket.png' %}" alt="Icon">
                                 </div>
                                 <div class="content">
-                                    <h6 class="title">Путешествие мирового класса</h6>
-                                    <p class="desc">Очень широкие направление туров</p>
+                                    <h6 class="title">{% blocktranslate %}Путешествие мирового класса{% endblocktranslate %}</h6>
+                                    <p class="desc">{% blocktranslate %}Очень широкие направление туров{% endblocktranslate %}</p>
                                 </div>
                             </div>
                             <div class="meta-wrapper">
-                                <a href="{% url "about_page" %}" class="theme-btn">Узнать о нас по больше</a>
+                                <a href="{% url "about_page" %}" class="theme-btn">{% blocktranslate %}Узнать о нас по больше{% endblocktranslate %}</a>
                             </div>
                         </div>
                     </div>
@@ -215,7 +181,7 @@
                     <div class="section-title  align-content-center justify-content-center text-center">
                         <div class="sec-content">
                             <span class="short-title">name of travel agency </span>
-                            <h2 class="title">Найдите популярные туры</h2>
+                            <h2 class="title">{% blocktranslate %}Найдите популярные туры{% endblocktranslate %}</h2>
                             <img class="bottom-shape" src="{% static 'images/shape/bottom-bar.png' %}" alt="Bottom Shape">
                         </div>
                     </div>
@@ -242,7 +208,7 @@
                                         </div>
                                         <div class="time-zone-inner">
                                             <i class="fa-solid fa-clock"></i>
-                                            <p class="title">{{tour.days}} Days</p>
+                                            <p class="title">{{tour.days}} {% blocktranslate %}дней{% endblocktranslate %}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -267,14 +233,14 @@
                     <div class="section-title">
                         <div class="sec-content">
                             <span class="short-title">name of travel agency</span>
-                            <h2 class="title">Получите лучшие впечатления от путешествия с NAME</h2>
+                            <h2 class="title">{% blocktranslate %}Получите лучшие впечатления от путешествия с NAME{% endblocktranslate %}</h2>
                             <img class="bottom-shape" src="{% static 'images/shape/bottom-bar.png' %}" alt="Bottom Shape">
                         </div>
                         <div class="sec-desc">
                             <p class="desc"></p>
                         </div>
                         <div class="sec-btn">
-                            <a href="#" class="theme-btn">Узнать о нас по больше</a>
+                            <a href="#" class="theme-btn">{% blocktranslate %}Узнать о нас по больше{% endblocktranslate %}</a>
                         </div>
                     </div>
                 </div>
@@ -290,8 +256,8 @@
                                 <img src="{% static 'images/icon/folding-map.png' %}" alt="Icon">
                             </div>
                             <div class="content">
-                                <h6 class="title">Гиты в турах</h6>
-                                <p class="desc">Наши гиты лучшие в своём деле</p>
+                                <h6 class="title">{% blocktranslate %}Гиты в турах{% endblocktranslate %}</h6>
+                                <p class="desc">{% blocktranslate %}Наши гиты лучшие в своём деле{% endblocktranslate %}</p>
                             </div>
                         </div>
                         <div class="info-card style-1">
@@ -299,8 +265,8 @@
                                 <img src="{% static 'images/icon/ticket.png' %}" alt="Icon">
                             </div>
                             <div class="content">
-                                <h6 class="title">Цены туров</h6>
-                                <p class="desc">У нас самые приемлимые цены в рынке</p>
+                                <h6 class="title">{% blocktranslate %}Цены туров{% endblocktranslate %}</h6>
+                                <p class="desc">{% blocktranslate %}У нас самые приемлимые цены в рынке{% endblocktranslate %}</p>
                             </div>
                         </div>
                         <div class="info-card style-1">
@@ -308,8 +274,8 @@
                                 <img src="{% static 'images/icon/calender.png' %}" alt="Icon">
                             </div>
                             <div class="content">
-                                <h6 class="title">Мгновенное бронирование</h6>
-                                <p class="desc">Вы можете бронировать туры как и онлайн так и в офисах нашего турагентство</p>
+                                <h6 class="title">{% blocktranslate %}Мгновенное бронирование{% endblocktranslate %}</h6>
+                                <p class="desc">{% blocktranslate %}Вы можете бронировать туры как и онлайн так и в офисах нашего турагентство{% endblocktranslate %}</p>
                             </div>
                         </div>
                     </div>
@@ -326,7 +292,7 @@
             <div class="section-title justify-content-center text-center">
                 <div class="sec-content">
                     <span class="short-title">name of travel agency</span>
-                    <h2 class="title">Революция в способах путешествий</h2>
+                    <h2 class="title">{% blocktranslate %}Революция в способах путешествий{% endblocktranslate %}</h2>
                     <img class="bottom-shape" src="{% static 'images/shape/bottom-bar.png' %}" alt="Bottom Shape">
                 </div>
             </div>
@@ -337,7 +303,7 @@
                             <img src="{% static 'images/process-step-area/image-1.png' %}" alt="Shape">
                         </div>
                         <div class="content-wrapper">
-                            <h4 class="title">Бронируйте и отдыхайте</h4>
+                            <h4 class="title">{% blocktranslate %}Бронируйте и отдыхайте{% endblocktranslate %}</h4>
                             <p class="desc"></p>
                         </div>
                     </div>
@@ -348,7 +314,7 @@
                             <img src="{% static 'images/process-step-area/image-2.png' %}" alt="Shape">
                         </div>
                         <div class="content-wrapper">
-                            <h4 class="title">Умный контрольный список</h4>
+                            <h4 class="title">{% blocktranslate %}Умный контрольный список{% endblocktranslate %}</h4>
                             <p class="desc"></p>
                         </div>
                     </div>
@@ -359,7 +325,7 @@
                             <img src="{% static 'images/process-step-area/image-3.png' %}" alt="Shape">
                         </div>
                         <div class="content-wrapper">
-                            <h4 class="title">Экономьте больше</h4>
+                            <h4 class="title">{% blocktranslate %}Экономьте больше{% endblocktranslate %}</h4>
                             <p class="desc"></p>
                         </div>
                     </div>
@@ -412,7 +378,7 @@
                          <div class="section-title">
                             <div class="sec-content">
                                 <span class="short-title"></span>
-                                <h2 class="title">Что говорит путешественник</h2>
+                                <h2 class="title">{% blocktranslate %}Что говорит путешественник{% endblocktranslate %}</h2>
                                 <img class="bottom-shape" src="{% static 'images/shape/bottom-bar.png' %}" alt="Bottom Shape">
                             </div>
                         </div>
@@ -422,7 +388,7 @@
                                 <div class="testimonial-card style-1">
                                     <div class="content-wrapper">
                                         <div class="content">
-                                            <p class="text">“Их обслуживание просто замечательное и дешевле, чем на прямом или любом другом сайте бронирования. Вы сразу же возвращаетесь к нам, и на другом конце нет никаких проблем.”</p>
+                                            <p class="text">{% blocktranslate %}Их обслуживание просто замечательное и дешевле, чем на прямом или любом другом сайте бронирования. Вы сразу же возвращаетесь к нам, и на другом конце нет никаких проблем.{% endblocktranslate %}</p>
                                         </div>
                                         <div class="user-rating">
                                             <i class="fa-solid fa-star"></i>
@@ -489,7 +455,7 @@
             <div class="section-title  align-content-center justify-content-center text-center">
                 <div class="sec-content">
                     <span class="short-title">name of travel agency</span>
-                    <h2 class="title">Исследуйте окрестности</h2>
+                    <h2 class="title">{% blocktranslate %}Исследуйте окрестности{% endblocktranslate %}</h2>
                     <img class="bottom-shape" src="{% static 'images/shape/bottom-bar.png' %}" alt="Bottom Shape">
                 </div>
             </div>
@@ -514,7 +480,7 @@
                 </div>
             </div>
             <div class="sec-btn justify-content-center text-center">
-                <a class="theme-btn" href="{% url "tour_page" %}">Узнать больше</a>
+                <a class="theme-btn" href="{% url "tour_page" %}">{% blocktranslate %}Узнать больше{% endblocktranslate %}</a>
             </div>
         </div>
     </div>
